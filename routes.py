@@ -65,4 +65,5 @@ def get_data():
 
 if __name__ == '__main__':
     APP.debug=True
-    APP.run()
+    # Since this is running on AWS, change host
+    APP.run(host='0.0.0.0', port=5000)
