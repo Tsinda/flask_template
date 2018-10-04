@@ -42,24 +42,10 @@ def run_query():
     # Returns data in json format
     return json.loads(druid_query.result_json)
 
-def transform_data(data):
-    # *************************
-    #   START OF CODE CHANGES
-    #
-    #  Task: Replace the statement below with code that converts the contents of
-    #  'data' into the content you want your API endpoint to emit.
-    # *************************
-
-    return data
-
-    # *************************
-    #   END OF CODE CHANGES
-    # *************************
-
 @APP.route('/get_data')
 def get_data():
     druid_data = run_query()
-    response = jsonify(transform_data(druid_data))
+    response = jsonify(druid_data)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
